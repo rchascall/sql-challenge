@@ -49,15 +49,12 @@ CREATE TABLE department_employees (
     employee_no INT   NOT NULL,
     department_no VARCHAR(4)   NOT NULL,
 	CONSTRAINT pk_department_employees PRIMARY KEY (
-        employee_no
+        employee_no, department_no
 	)
 );
 
 ALTER TABLE department_manager ADD CONSTRAINT fk_department_manager_employee_no FOREIGN KEY(employee_no)
 REFERENCES employees (employee_no);
-
-ALTER TABLE titles ADD CONSTRAINT fk_titles_employee_title_id FOREIGN KEY(employee_title_id)
-REFERENCES employees (employee_title_id);
 
 ALTER TABLE salaries ADD CONSTRAINT fk_salaries_employee_no FOREIGN KEY(employee_no)
 REFERENCES employees (employee_no);
